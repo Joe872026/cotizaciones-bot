@@ -9,7 +9,7 @@ TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 acciones = {
     "Nike": "NKE",
     "Microsoft": "MSFT",
-    "IAG": "IAG.MC"
+    "IAG": "IAG.MC",
     "Bitcoin": "BTC-USD"
 }
 

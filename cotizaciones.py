@@ -7,10 +7,10 @@ TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 acciones = {
-    "Nike": "NKE",
-    "Microsoft": "MSFT",
-    "IAG": "IAG.MC",
-    "Bitcoin": "BTC-USD"
+    "Nike": ("NKE", "$"),
+    "Microsoft": ("MSFT", "$"),
+    "IAG": ("IAG.MC", "€"),
+    "Bitcoin": ("BTC-USD", "$")
 }
 
 def obtener_cotizacion(ticker):
@@ -28,11 +28,11 @@ def enviar_mensaje(texto):
 fecha = datetime.now().strftime("%d/%m/%Y")
 mensaje = f"📈 Cotizaciones del {fecha}\n\n"
 
-for nombre, ticker in acciones.items():
+for nombre, (ticker, moneda) in acciones.items():
     try:
         precio, variacion = obtener_cotizacion(ticker)
         emoji = "🟢" if variacion >= 0 else "🔴"
-        mensaje += f"{emoji} {nombre}: {precio} $ ({variacion:+.2f}%)\n"
+        mensaje += f"{emoji} {nombre}: {precio} {moneda} ({variacion:+.2f}%)\n"
     except Exception as e:
         mensaje += f"⚠️ {nombre}: error al obtener datos\n"
 

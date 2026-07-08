@@ -10,7 +10,10 @@ acciones = {
     "Nike": ("NKE", "$"),
     "Microsoft": ("MSFT", "$"),
     "IAG": ("IAG.MC", "€"),
-    "Bitcoin": ("BTC-USD", "$")
+    "Bitcoin": ("BTC-USD", "$"),
+    "Tubacex": ("TUB.MC", "€"),
+    "Novo Nordisk": ("NOVO-B.CO", "DKK"),
+    "Adobe": ("ADBE", "$")
 }
 
 def obtener_cotizacion(ticker):
